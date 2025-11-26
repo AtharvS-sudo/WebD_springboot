@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+/* Add these styles for printing */
+@media print {
+  /* Hide everything that should not be printed */
+  .no-print,
+  header {
+    display: none !important;
+  }
+
+  /* Ensure the result card takes up the full space */
+  .print-container {
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  body {
+    background-color: white !important;
+  }
+}

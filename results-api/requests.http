@@ -1,0 +1,44 @@
+### Variables (adjust if needed)
+@baseUrl = http://localhost:8080/api
+@prnNo = 123456789
+@rollNo = 21BCE0001
+@subjectId = 1
+
+### 1. Add a new Student
+# @name newStudent
+POST {{baseUrl}}/students/add
+Content-Type: application/json
+
+{
+    "prnNo": {{prnNo}},
+    "firstName": "Dev",
+    "lastName": "Jain",
+    "branch": "Computer Science",
+    "rollNo": "{{rollNo}}",
+    "email": "dev.jain@vit.ac.in"
+}
+
+### 2. Add a new Subject
+# @name newSubject
+POST {{baseUrl}}/subjects/add
+Content-Type: application/json
+
+{
+    "subjectCode": "CSE1001",
+    "subjectName": "Introduction to Programming",
+    "credits": 4
+}
+
+### 3. Add Marks for the Student in that Subject
+POST {{baseUrl}}/marks/add
+Content-Type: application/json
+
+{
+    "prnNo": {{prnNo}},
+    "subjectId": {{subjectId}},
+    "mseMarks": 25,
+    "eseMarks": 60
+}
+
+### 4. Fetch the final Result Card for the Student
+GET {{baseUrl}}/results/{{rollNo}}
